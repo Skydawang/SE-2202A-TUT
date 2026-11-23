@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Course Explorer</h1>
+    </header>
+
+    <main>
+        <!-- File upload and error display section (Matches page_error.png & page_no_filters.jpg) -->
+        <section class="control-panel">
+            <div class="file-upload-container">
+                <h2>Load Courses (JSON)</h2>
+                <label for="file-input">Choose File</label>
+                <input type="file" id="file-input" accept=".json">
+            </div>
+            <div id="error-message" class="error-hidden"></div>
+        </section>
+
+        <!-- Filter and sort control bar (Matches page_filter_bar.jpg & page_sort_bar.jpg) -->
+        <section class="filter-sort-bar">
+            <h2>Sort and Filter</h2>
+            <div class="filters">
+                <label>Department: <select id="filter-department"><option value="">All</option></select></label>
+                <label>Level: <select id="filter-level"><option value="">All</option></select></label>
+                <label>Credits: <select id="filter-credits"><option value="">All</option></select></label>
+                <label>Instructor: <select id="filter-instructor"><option value="">All</option></select></label>
+                <label>Sort By: 
+                    <select id="sort-by">
+                        <option value="">None</option>
+                        <option value="id-asc">ID (A–Z)</option>
+                        <option value="id-desc">ID (Z–A)</option>
+                        <option value="title-asc">Title (A–Z)</option>
+                        <option value="title-desc">Title (Z–A)</option>
+                        <option value="semester-earliest">Semester (Earliest first)</option>
+                        <option value="semester-latest">Semester (Latest first)</option>
+                    </select>
+                </label>
+            </div>
+        </section>
+
+        <!-- Main content area: list on the left, details on the right (Matches page_details.png) -->
+        <section class="content-container">
+            <div class="list-pane">
+                <ul id="course-list">
+                    <li class="placeholder-item">No courses loaded yet. Please upload a JSON file.</li>
+                </ul>
+            </div>
+            <div class="detail-pane" id="course-detail">
+                <!-- Details will be injected here when a course is clicked -->
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
